@@ -2,42 +2,53 @@
 
 ## General
 
-### Library
-- [ ] hidden menu  
-- [ ] telegram notification  
-- [ ] impersonet user  
-- [ ] convert tags to link  
-- [ ] auto embed instagram  
-- [ ] change logo and background  
-- [ ] gdrive video  
-- [ ] handle page for extrnal url  
-- [ ] watermark image in sosial media thumbnail  
-- [ ] share button  
-- [ ] footprint in copy paste  
+### Hooks & Library
+- [x] [Auto Redirect Google Translate](https://github.com/wichaksono/neon/tree/main/wp-snippet/google-translate)
+- [ ] Hidden Menu  
+- [ ] Telegram Notification  
+- [ ] Impersonate User  
+- [ ] Convert Tags to Link  
+- [ ] Auto Embed Instagram  
+- [ ] Change Logo and Background  
+- [ ] GDrive Video  
+- [ ] Handle Page for External URL  
+- [ ] Watermark Image in Social Media Thumbnail  
+- [ ] Share Button  
+- [ ] Footprint in Copy Paste  
 
-### Shortcode
-- [ ] read also  
-- [ ] news ticker  
-- [ ] api jadwal sholat  
-- [ ] content locker  
+### Shortcodes
+- [x] [Button Redirect Google Translate](https://github.com/wichaksono/neon/blob/main/wp-snippet/google-translate)
+- [ ] Read Also  
+- [ ] News Ticker  
+- [ ] API Jadwal Sholat  
+- [ ] Content Locker  
+- [ ] Get Content List by Terms  
 
 ---
 
 ## GeneratePress + GenerateBlocks
-- [ ] hook related via query  
+
+### Hooks
+- [ ] Hook Related via Query  
 
 ---
 
 ## Yoast
-- [ ] dynamic month, year in yoast title  
-- [ ] watermark image in sosial media yoast thumbnail  
+
+### Hooks & Library
+- [ ] Watermark Image in Social Media Yoast Thumbnail  
+
+### Shortcodes
+- [ ] Dynamic Month, Year in Yoast Title  
 
 ---
 
 ## WooCommerce
-- [ ] woo single order landing page  
-- [ ] woo mp link single  
-- [ ] woo wa link single  
-- [ ] woo custom price label  
-- [ ] auto apply coupon code with cookie  
-- [ ] payment confirmation  
+
+### Hooks & Library
+- [ ] Woo Single Order Landing Page  
+- [ ] Woo MP Link Single  
+- [ ] Woo WA Link Single  
+- [ ] Woo Custom Price Label  
+- [ ] Auto Apply Coupon Code with Cookie  
+- [ ] Payment Confirmation  
