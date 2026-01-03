@@ -1,4 +1,4 @@
-# Neon
+# Neon WP Snippets
 
 Kumpulan WordPress snippet berbasis hook, filter, dan shortcode.  
 Ditulis untuk penggunaan langsung via kode, tanpa UI tambahan di wp-admin.
@@ -27,7 +27,9 @@ Ditulis untuk penggunaan langsung via kode, tanpa UI tambahan di wp-admin.
 
 ## Author
 Wakhid Wichaksono
+
 [neon.web.id/wichaksono](https://neon.web.id/author/wichaksono/)
+
 [github.com/wichaksono](https://github.com/wichaksono)
 
 ## Topics
