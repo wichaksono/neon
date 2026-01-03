@@ -75,40 +75,37 @@ add_action('template_redirect', function () {
     // 3. Stop jika Google Translate
     if (is_google_translate_request()) return;
 
-    // 4. Stop jika sudah di domain translate.goog
-    if (strpos($_SERVER['HTTP_HOST'], 'translate.goog') !== false) return;
-
-    // 5. Stop jika sudah pernah redirect
+    // 4. Stop jika sudah pernah redirect
     if (!empty($_COOKIE['gt_redirected'])) return;
 
-    // 6. Ambil country dari Cloudflare
+    // 5. Ambil country dari Cloudflare
     $country = $_SERVER['HTTP_CF_IPCOUNTRY'] ?? 'ID';
 
-    // 7. Stop jika pengunjung dari Indonesia
+    // 6. Stop jika pengunjung dari Indonesia
     if ($country === 'ID') return;
 
-    // 8. Tentukan skema URL
+    // 7. Tentukan skema URL
     $scheme = is_ssl() ? 'https://' : 'http://';
 
-    // 9. Parse URL saat ini
+    // 8. Parse URL saat ini
     $parsed = parse_url($scheme . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 
-    // 10. Format host untuk translate.goog
+    // 9. Format host untuk translate.goog
     $host = str_replace('.', '-', $parsed['host']);
 
-    // 11. Ambil path URL
+    // 10. Ambil path URL
     $path = $parsed['path'] ?? '/';
 
-    // 12. Build URL Google Translate
+    // 11. Build URL Google Translate
     $gt_url =
         'https://' . $host . '.translate.goog' .
         $path .
         '?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=id&_x_tr_pto=wapp';
 
-    // 13. Set cookie penanda redirect
+    // 12. Set cookie penanda redirect
     setcookie('gt_redirected', '1', time() + 86400 * 30, '/', '', false, true);
 
-    // 14. Redirect
+    // 13. Redirect
     wp_redirect($gt_url, 302);
     exit;
 });
