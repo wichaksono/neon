@@ -117,7 +117,3 @@ if (!function_exists('cf_country_translate_config')) {
         ];
     }
 }
-
-        return false;
-    }
-}
