@@ -7,7 +7,7 @@
 - [ ] Hidden Menu  
 - [ ] Telegram Notification  
 - [ ] Impersonate User  
-- [ ] Convert Tags to Link  
+- [x] [Convert Tags to Link](https://github.com/wichaksono/neon/tree/main/wp-snippet/convert-tags-to-link)  
 - [ ] Auto Embed Instagram  
 - [ ] Change Logo and Background  
 - [ ] GDrive Video  
