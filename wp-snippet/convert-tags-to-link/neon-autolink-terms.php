@@ -1,26 +1,29 @@
 <?php
 /**
- * Auto-link kategori utama dan tag ke dalam konten post.
+ * Automatically adds internal links for the current post's category and tags.
  *
- * - Hanya berjalan di single post
- * - Setiap term (kategori / tag) hanya dilink 1 kali
- * - Link hanya dibuat di dalam <p>
- * - Skip paragraf yang sudah memiliki <a>
- * - Term diurutkan dari yang paling pendek ke paling panjang
+ * Rules:
+ * - Works only on single post pages.
+ * - Uses the primary (first) category and all post tags.
+ * - Each term is linked only once across the entire content.
+ * - Maximum of 2 automatic links per paragraph.
+ * - Does not modify or nest existing <a> tags.
+ * - Case-insensitive and word-boundary safe.
+ *
+ * @param string $content The post content.
+ * @return string Modified content with automatic internal links.
  */
 add_filter('the_content', 'neon_autolink_terms');
 
 function neon_autolink_terms($content)
 {
-    // Jalankan hanya di halaman single post
     if (!is_single()) {
         return $content;
     }
 
-    // Kumpulkan semua term (kategori utama + tag)
     $terms = [];
 
-    // Ambil kategori utama (kategori pertama)
+    // Primary category (first)
     $cats = get_the_category();
     if (!empty($cats)) {
         $terms[] = [
@@ -29,7 +32,7 @@ function neon_autolink_terms($content)
         ];
     }
 
-    // Ambil semua tag
+    // Tags
     $tags = get_the_tags();
     if (!empty($tags)) {
         foreach ($tags as $tag) {
@@ -40,54 +43,55 @@ function neon_autolink_terms($content)
         }
     }
 
-    // Jika tidak ada term, kembalikan konten apa adanya
     if (empty($terms)) {
         return $content;
     }
 
-    // Urutkan term dari terpendek ke terpanjang
+    // Sort by term length (short → long)
     usort($terms, function ($a, $b) {
         return mb_strlen($a['name']) <=> mb_strlen($b['name']);
     });
 
-    // Proses auto-link per term
-    foreach ($terms as $term) {
+    $linked_terms = [];
 
-        $term_regex = preg_quote($term['name'], '/');
-        $term_link  = esc_url($term['link']);
-        $done       = false;
+    $content = preg_replace_callback(
+        '/<p\b[^>]*>.*?<\/p>/is',
+        function ($matches) use ($terms, &$linked_terms) {
 
-        $content = preg_replace_callback(
-            '/<p\b[^>]*>.*?<\/p>/is',
-            function ($matches) use ($term_regex, $term_link, &$done) {
+            $paragraph = $matches[0];
+            $links_in_paragraph = 0;
 
-                if ($done) {
-                    return $matches[0];
+            foreach ($terms as $term) {
+
+                if ($links_in_paragraph >= 2) {
+                    break;
                 }
 
-                // Skip paragraf yang sudah mengandung link
-                if (preg_match('/<a\s/i', $matches[0])) {
-                    return $matches[0];
+                if (isset($linked_terms[$term['name']])) {
+                    continue;
                 }
 
-                // Skip jika term tidak ada di paragraf
-                if (!preg_match('/\b' . $term_regex . '\b/i', $matches[0])) {
-                    return $matches[0];
+                $regex = '/\b(' . preg_quote($term['name'], '/') . ')\b(?![^<]*<\/a>)/i';
+
+                if (!preg_match($regex, $paragraph)) {
+                    continue;
                 }
 
-                $done = true;
-
-                // Link kemunculan pertama term
-                return preg_replace(
-                    '/\b(' . $term_regex . ')\b/i',
-                    '<a href="' . $term_link . '">$1</a>',
-                    $matches[0],
+                $paragraph = preg_replace(
+                    $regex,
+                    '<a href="' . esc_url($term['link']) . '">$1</a>',
+                    $paragraph,
                     1
                 );
-            },
-            $content
-        );
-    }
+
+                $linked_terms[$term['name']] = true;
+                $links_in_paragraph++;
+            }
+
+            return $paragraph;
+        },
+        $content
+    );
 
     return $content;
 }
