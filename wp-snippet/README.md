@@ -8,7 +8,7 @@
 - [ ] Telegram Notification  
 - [ ] Impersonate User  
 - [x] [Convert Tags to Link](https://github.com/wichaksono/neon/tree/main/wp-snippet/convert-tags-to-link)  
-- [ ] Auto Embed Instagram  
+- [x] [Auto Embed Instagram](https://github.com/wichaksono/neon/blob/main/wp-snippet/auto-embed-instagram)
 - [ ] Change Logo and Background  
 - [ ] GDrive Video  
 - [ ] Handle Page for External URL  
