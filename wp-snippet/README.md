@@ -14,7 +14,7 @@
 - [ ] Handle Page for External URL  
 - [ ] Watermark Image in Social Media Thumbnail  
 - [ ] Share Button  
-- [ ] Footprint in Copy Paste
+- [x] [Copy Paste Footprint](https://github.com/wichaksono/neon/tree/main/wp-snippet/copy-paste-footprint)
 - [ ] Custom Avatar
 
 ### Shortcodes
