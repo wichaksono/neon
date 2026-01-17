@@ -1,8 +1,8 @@
 <?php
 
-add_shortcode('post_read_also', 'read_also');
+add_shortcode('read_also', 'neon_read_also');
 
-function read_also($atts = []): string
+function neon_read_also($atts = []): string
 {
     global $post;
 
@@ -128,7 +128,7 @@ function read_also($atts = []): string
     // =========================
     // OUTPUT
     // =========================
-    $output = '<div class="read-also-box"><span>' . esc_html($atts['label']) . '</span><ul>';
+    $output = '<div class="neon-read-also-box"><span>' . esc_html($atts['label']) . '</span><ul>';
 
     foreach ($lists as $item) {
         $output    .= '<li><a href="' . $item['link'] . '">' . esc_html($item['title']) . '</a></li>';
