@@ -19,7 +19,7 @@
 
 ### Shortcodes
 - [x] [Button Redirect Google Translate](https://github.com/wichaksono/neon/blob/main/wp-snippet/google-translate)
-- [ ] Read Also  
+- [x] [Read Also](https://github.com/wichaksono/neon/tree/main/wp-snippet/read-also)
 - [ ] News Ticker  
 - [ ] API Jadwal Sholat  
 - [ ] Content Locker  
