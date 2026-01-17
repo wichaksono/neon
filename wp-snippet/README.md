@@ -14,7 +14,8 @@
 - [ ] Handle Page for External URL  
 - [ ] Watermark Image in Social Media Thumbnail  
 - [ ] Share Button  
-- [ ] Footprint in Copy Paste  
+- [ ] Footprint in Copy Paste
+- [ ] Custom Avatar
 
 ### Shortcodes
 - [x] [Button Redirect Google Translate](https://github.com/wichaksono/neon/blob/main/wp-snippet/google-translate)
