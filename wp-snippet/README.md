@@ -5,7 +5,7 @@
 ### Hooks & Library
 - [x] [Auto Redirect Google Translate](https://github.com/wichaksono/neon/tree/main/wp-snippet/google-translate)
 - [x] [Hidden WP Admin Menu](https://github.com/wichaksono/neon/tree/main/wp-snippet/hidden-wp-admin-menus)
-- [ ] Telegram Notification  
+- [x] [Telegram Notification](https://github.com/wichaksono/neon/tree/main/wp-snippet/telegram-notification)
 - [ ] Impersonate User  
 - [x] [Convert Tags to Link](https://github.com/wichaksono/neon/tree/main/wp-snippet/convert-tags-to-link)  
 - [x] [Auto Embed Instagram](https://github.com/wichaksono/neon/blob/main/wp-snippet/auto-embed-instagram)
@@ -24,13 +24,6 @@
 - [ ] API Jadwal Sholat  
 - [ ] Content Locker  
 - [ ] Get Content List by Terms  
-
----
-
-## GeneratePress + GenerateBlocks
-
-### Hooks
-- [ ] Hook Related via Query  
 
 ---
 
