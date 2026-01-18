@@ -13,7 +13,7 @@
 - [ ] GDrive Video  
 - [ ] Handle Page for External URL  
 - [ ] Watermark Image in Social Media Thumbnail  
-- [ ] Share Button  
+- [x] [Share Button](https://github.com/wichaksono/neon/tree/main/wp-snippet/share-button)
 - [x] [Copy Paste Footprint](https://github.com/wichaksono/neon/tree/main/wp-snippet/copy-paste-footprint)
 - [ ] Custom Avatar
 
