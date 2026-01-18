@@ -21,7 +21,7 @@
 - [x] [Button Redirect Google Translate](https://github.com/wichaksono/neon/blob/main/wp-snippet/google-translate)
 - [x] [Read Also](https://github.com/wichaksono/neon/tree/main/wp-snippet/read-also)
 - [ ] News Ticker  
-- [ ] API Jadwal Sholat  
+- [x] [Jadwal Sholat](https://github.com/wichaksono/neon/tree/main/wp-snippet/jadwal-sholat)
 - [ ] Content Locker  
 - [ ] Get Content List by Terms  
 
