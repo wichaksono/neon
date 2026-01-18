@@ -5,8 +5,8 @@ Kumpulan WordPress plugin, themes dan snippet berbasis hook, shortcode, dan file
 ---
 
 ## Daftar Isi
-- Plugins
-- Themes
+- [Plugins](https://github.com/wichaksono/neon/tree/main/plugins)
+- [Themes](https://github.com/wichaksono/neon/tree/main/themes)
 - [WP Snippet Code](https://github.com/wichaksono/neon/tree/main/wp-snippet)
 
 ---
@@ -14,9 +14,7 @@ Kumpulan WordPress plugin, themes dan snippet berbasis hook, shortcode, dan file
 ## Author
 Wakhid Wichaksono
 
-[neon.web.id/wichaksono](https://neon.web.id/author/wichaksono/)
+- blog: [neon.web.id/wichaksono](https://neon.web.id/author/wichaksono/)
+- github: [github.com/wichaksono](https://github.com/wichaksono)
+- facebook: [facebook.com/bocahapi](https://www.facebook.com/bocahapi)
 
-[github.com/wichaksono](https://github.com/wichaksono)
-
-## Topics
-wordpress, wordpress-snippets
