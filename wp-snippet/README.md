@@ -4,7 +4,7 @@
 
 ### Hooks & Library
 - [x] [Auto Redirect Google Translate](https://github.com/wichaksono/neon/tree/main/wp-snippet/google-translate)
-- [ ] Hidden Menu  
+- [x] [Hidden WP Admin Menu](https://github.com/wichaksono/neon/tree/main/wp-snippet/hidden-wp-admin-menus)
 - [ ] Telegram Notification  
 - [ ] Impersonate User  
 - [x] [Convert Tags to Link](https://github.com/wichaksono/neon/tree/main/wp-snippet/convert-tags-to-link)  
