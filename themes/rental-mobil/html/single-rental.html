@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyota Innova Zenix - Layanan Rental Mobil Profesional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #2563eb;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+            display: none;
+            backdrop-filter: blur(4px);
+        }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        
+        /* Adjusted Border Radius for Professional Look */
+        .rounded-pro { border-radius: 0.5rem; }
+        .rounded-pro-lg { border-radius: 0.75rem; }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <!-- Professional Top Bar -->
+    <div class="bg-gray-900 text-white py-2 px-6 text-sm hidden md:block">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex gap-6">
+                <span><i class="fas fa-phone-alt text-blue-400 mr-2"></i> +62 812 3456 789</span>
+                <span><i class="fas fa-envelope text-blue-400 mr-2"></i> info@autorent.com</span>
+            </div>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-blue-400"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-blue-400"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-blue-400"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="bg-white sticky top-0 z-40 border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-10">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-car-side text-blue-600 text-2xl"></i>
+                    <span class="font-bold text-2xl tracking-tight text-gray-800 border-r pr-4 border-gray-200">AUTORENT</span>
+                </div>
+                <div class="hidden lg:flex gap-8 font-medium text-gray-600">
+                    <a href="#" class="nav-link hover:text-blue-600">Beranda</a>
+                    <a href="#" class="nav-link text-blue-600 font-semibold">Armada</a>
+                    <a href="#" class="nav-link hover:text-blue-600">Layanan</a>
+                    <a href="#" class="nav-link hover:text-blue-600">Tentang Kami</a>
+                    <a href="#" class="nav-link hover:text-blue-600">Kontak</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="hidden sm:block text-sm font-semibold text-gray-700">Masuk</button>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-pro font-semibold text-sm transition">
+                    Daftar Sekarang
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-10">
+        <!-- Breadcrumb -->
+        <nav class="flex text-sm text-gray-500 mb-8 gap-2">
+            <a href="#" class="hover:text-blue-600">Armada</a>
+            <span>/</span>
+            <a href="#" class="hover:text-blue-600">MPV Premium</a>
+            <span>/</span>
+            <span class="text-gray-900 font-medium">Toyota Innova Zenix</span>
+        </nav>
+
+        <div class="grid lg:grid-cols-12 gap-10">
+            <!-- Product Images -->
+            <div class="lg:col-span-7 space-y-4">
+                <div class="relative overflow-hidden rounded-pro border border-gray-100 shadow-lg">
+                    <img id="mainImage" src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&q=80&w=1200" alt="Toyota Innova Zenix" class="w-full h-auto object-cover">
+                </div>
+                <div class="grid grid-cols-4 gap-4">
+                    <button onclick="changeImg(this.src)" class="rounded-pro overflow-hidden border-2 border-blue-600 shadow-sm transition active-thumb">
+                        <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&q=80&w=300" class="w-full h-24 object-cover">
+                    </button>
+                    <button onclick="changeImg(this.src)" class="rounded-pro overflow-hidden border-2 border-transparent hover:border-gray-300 transition opacity-70 hover:opacity-100">
+                        <img src="https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&q=80&w=300" class="w-full h-24 object-cover">
+                    </button>
+                    <button onclick="changeImg(this.src)" class="rounded-pro overflow-hidden border-2 border-transparent hover:border-gray-300 transition opacity-70 hover:opacity-100">
+                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=300" class="w-full h-24 object-cover">
+                    </button>
+                    <button onclick="changeImg(this.src)" class="rounded-pro overflow-hidden border-2 border-transparent hover:border-gray-300 transition opacity-70 hover:opacity-100">
+                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=300" class="w-full h-24 object-cover">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="lg:col-span-5 space-y-8">
+                <section>
+                    <span class="inline-block px-3 py-1 bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider rounded-pro mb-4">MPV Hybrid Premium</span>
+                    <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight mb-2">Toyota Innova Zenix</h1>
+                    <div class="flex items-center gap-4 text-sm">
+                        <div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <span class="text-gray-500 font-medium">4.9 (128 Penilaian Terverifikasi)</span>
+                    </div>
+                </section>
+
+                <div class="bg-gray-50 p-6 rounded-pro border border-gray-100">
+                    <p class="text-sm text-gray-500 mb-1">Harga mulai dari</p>
+                    <div class="flex items-baseline gap-2">
+                        <span class="text-4xl font-bold text-blue-600">Rp 850.000</span>
+                        <span class="text-gray-500 font-medium">/ 24 Jam</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="font-bold text-lg text-gray-800">Spesifikasi Kendaraan</h3>
+                    <div class="grid grid-cols-2 gap-y-4">
+                        <div class="flex items-center gap-3 text-sm text-gray-600">
+                            <i class="fas fa-users w-5 text-blue-600"></i>
+                            <span>7 Penumpang</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-gray-600">
+                            <i class="fas fa-gas-pump w-5 text-blue-600"></i>
+                            <span>Hybrid (Bensin/Listrik)</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-gray-600">
+                            <i class="fas fa-cog w-5 text-blue-600"></i>
+                            <span>Transmisi Otomatis (CVT)</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-gray-600">
+                            <i class="fas fa-snowflake w-5 text-blue-600"></i>
+                            <span>Dual Zone AC Digital</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6">
+                    <button onclick="toggleModal()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-pro font-bold text-lg transition shadow-lg shadow-blue-100 flex items-center justify-center gap-3">
+                        <i class="fas fa-calendar-alt"></i>
+                        Cek Ketersediaan & Pesan
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rental Packages Section -->
+        <section class="mt-20">
+            <h2 class="text-2xl font-bold mb-8 text-center">Pilihan Paket Sewa Terpopuler</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Pack 1 -->
+                <div class="border border-gray-200 p-8 rounded-pro hover:shadow-xl transition relative group">
+                    <h3 class="font-bold text-xl mb-2">Lepas Kunci</h3>
+                    <p class="text-gray-500 text-sm mb-6">Kebebasan penuh untuk Anda berkendara sendiri.</p>
+                    <div class="text-2xl font-bold text-blue-600 mb-6">Rp 850.000 <span class="text-sm text-gray-400 font-normal">/hari</span></div>
+                    <ul class="space-y-3 text-sm text-gray-600 mb-8">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Durasi 24 Jam</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Tanpa BBM</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Support 24/7</li>
+                        <li class="flex items-center gap-2 text-gray-400 line-through"><i class="fas fa-times"></i> Termasuk Supir</li>
+                    </ul>
+                    <button onclick="toggleModal()" class="w-full py-2 border-2 border-blue-600 text-blue-600 rounded-pro font-bold hover:bg-blue-600 hover:text-white transition">Pilih Paket</button>
+                </div>
+                <!-- Pack 2 -->
+                <div class="border-2 border-blue-600 p-8 rounded-pro hover:shadow-xl transition relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 text-xs font-bold rounded-full">REKOMENDASI</div>
+                    <h3 class="font-bold text-xl mb-2">Mobil + Supir</h3>
+                    <p class="text-gray-500 text-sm mb-6">Perjalanan nyaman tanpa lelah menyetir.</p>
+                    <div class="text-2xl font-bold text-blue-600 mb-6">Rp 1.050.000 <span class="text-sm text-gray-400 font-normal">/hari</span></div>
+                    <ul class="space-y-3 text-sm text-gray-600 mb-8">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Durasi 12 Jam</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Supir Profesional</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Biaya Makan Supir</li>
+                        <li class="flex items-center gap-2 text-gray-400"><i class="fas fa-times"></i> Tanpa BBM & Parkir</li>
+                    </ul>
+                    <button onclick="toggleModal()" class="w-full py-2 bg-blue-600 text-white rounded-pro font-bold hover:bg-blue-700 transition">Pilih Paket</button>
+                </div>
+                <!-- Pack 3 -->
+                <div class="border border-gray-200 p-8 rounded-pro hover:shadow-xl transition">
+                    <h3 class="font-bold text-xl mb-2">All-In Premium</h3>
+                    <p class="text-gray-500 text-sm mb-6">Terima beres, tidak perlu pusing operasional.</p>
+                    <div class="text-2xl font-bold text-blue-600 mb-6">Rp 1.350.000 <span class="text-sm text-gray-400 font-normal">/hari</span></div>
+                    <ul class="space-y-3 text-sm text-gray-600 mb-8">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Durasi 12 Jam</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Supir & BBM</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Tol & Parkir</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-green-500"></i> Penjemputan Khusus</li>
+                    </ul>
+                    <button onclick="toggleModal()" class="w-full py-2 border-2 border-blue-600 text-blue-600 rounded-pro font-bold hover:bg-blue-600 hover:text-white transition">Pilih Paket</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1 space-y-6">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-car-side text-blue-500 text-3xl"></i>
+                        <span class="font-bold text-2xl tracking-tight">AUTORENT</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Penyedia jasa sewa mobil terpercaya dengan armada terbaru dan layanan pelanggan 24 jam. Kami mengutamakan kenyamanan dan keamanan perjalanan Anda.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-pro flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-pro flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-pro flex items-center justify-center hover:bg-blue-600 transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Tautan Cepat</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition">Beranda</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Daftar Armada</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Tentang Kami</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Layanan</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition">Sewa Lepas Kunci</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Sewa Dengan Supir</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Antar Jemput Bandara</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Perjalanan Wisata</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Sewa Bulanan Korporasi</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Kantor Pusat</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex gap-3">
+                            <i class="fas fa-map-marker-alt text-blue-500 mt-1"></i>
+                            <span>Jl. Jenderal Sudirman No. 123, Jakarta Selatan, Indonesia</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fas fa-phone-alt text-blue-500 mt-1"></i>
+                            <span>(021) 12345678 / +62 812 3456 789</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <i class="fas fa-clock text-blue-500 mt-1"></i>
+                            <span>Senin - Minggu: 24 Jam Non-Stop</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-10 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500">
+                <p>&copy; 2024 AutoRent Indonesia. Seluruh hak cipta dilindungi.</p>
+                <div class="flex gap-6">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="Paypal" class="h-5 opacity-50 grayscale hover:grayscale-0 transition">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-4 opacity-50 grayscale hover:grayscale-0 transition">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-6 opacity-50 grayscale hover:grayscale-0 transition">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal-overlay fixed inset-0 z-50 bg-black/60 items-center justify-center p-4">
+        <div class="modal-content bg-white w-full max-w-lg rounded-pro overflow-hidden shadow-2xl">
+            <div class="bg-blue-600 p-6 text-white flex justify-between items-center">
+                <div>
+                    <h3 class="text-xl font-bold">Formulir Reservasi</h3>
+                    <p class="text-blue-100 text-xs">Isi data di bawah untuk proses booking cepat</p>
+                </div>
+                <button onclick="toggleModal()" class="text-white/80 hover:text-white transition">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="rentalForm" class="p-8 space-y-6">
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Pilih Paket Sewa</label>
+                    <select id="selectedPackage" class="w-full px-4 py-3 rounded-pro border border-gray-200 focus:border-blue-500 outline-none transition bg-gray-50 font-medium">
+                        <option value="Lepas Kunci">Sewa Lepas Kunci - Rp 850rb</option>
+                        <option value="Dengan Supir">Sewa Dengan Supir - Rp 1.050rb</option>
+                        <option value="All-In">All-In Premium - Rp 1.350rb</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Nama Lengkap</label>
+                        <input type="text" id="custName" required class="w-full px-4 py-3 rounded-pro border border-gray-200 focus:border-blue-500 outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Nomor HP/WA</label>
+                        <input type="tel" id="custPhone" required class="w-full px-4 py-3 rounded-pro border border-gray-200 focus:border-blue-500 outline-none transition">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Tanggal Mulai</label>
+                        <input type="date" id="startDate" required class="w-full px-4 py-3 rounded-pro border border-gray-200 focus:border-blue-500 outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Durasi (Hari)</label>
+                        <input type="number" id="duration" required min="1" value="1" class="w-full px-4 py-3 rounded-pro border border-gray-200 focus:border-blue-500 outline-none transition">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-4 rounded-pro font-bold text-lg mt-4 flex items-center justify-center gap-3 transition">
+                    <i class="fab fa-whatsapp text-2xl"></i>
+                    Kirim Pesanan Sekarang
+                </button>
+                <p class="text-center text-xs text-gray-400">Tim kami akan merespon ketersediaan unit dalam waktu < 5 menit.</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function changeImg(src) {
+            const mainImg = document.getElementById('mainImage');
+            mainImg.src = src;
+            
+            // Thumbnail styling
+            event.currentTarget.parentElement.querySelectorAll('button').forEach(btn => {
+                btn.classList.remove('border-blue-600');
+                btn.classList.add('border-transparent', 'opacity-70');
+            });
+            event.currentTarget.classList.add('border-blue-600');
+            event.currentTarget.classList.remove('border-transparent', 'opacity-70');
+        }
+
+        function toggleModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.toggle('active');
+            document.body.style.overflow = modal.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        document.getElementById('rentalForm').onsubmit = function(e) {
+            e.preventDefault();
+            const pkg = document.getElementById('selectedPackage').value;
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const date = document.getElementById('startDate').value;
+            const dur = document.getElementById('duration').value;
+            
+            const msg = encodeURIComponent(
+                `*RESERVASI MOBIL - AUTORENT*\n\n` +
+                `*Unit:* Toyota Innova Zenix\n` +
+                `*Paket:* ${pkg}\n` +
+                `*Nama:* ${name}\n` +
+                `*WA:* ${phone}\n` +
+                `*Tgl Sewa:* ${date}\n` +
+                `*Durasi:* ${dur} Hari\n\n` +
+                `_Mohon dikonfirmasi untuk ketersediaan unit._`
+            );
+            window.open(`https://wa.me/628123456789?text=${msg}`, '_blank');
+        }
+
+        // Close modal on outside click
+        window.onclick = function(e) {
+            if (e.target.id === 'bookingModal') toggleModal();
+        }
+    </script>
+</body>
+</html>
