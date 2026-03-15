@@ -77,16 +77,14 @@
         </div>
     </section>
 
-    <!-- PRODUK PILIHAN (Horizontal Scroll) -->
+    <!-- PRODUK PILIHAN -->
     <section id="pilihan" class="container mx-auto px-4 mb-16">
         <div class="flex items-center justify-between mb-8">
             <h3 class="text-2xl font-extrabold flex items-center gap-2">
                 <i data-lucide="sparkles" class="text-yellow-500 w-6 h-6"></i> Produk Pilihan
             </h3>
         </div>
-        <div class="flex gap-6 overflow-x-auto pb-6 hide-scroll" id="featured-grid">
-            <!-- Render via JS -->
-        </div>
+        <div class="flex gap-6 overflow-x-auto pb-6 hide-scroll" id="featured-grid"></div>
     </section>
 
     <!-- PRODUK TERLARIS -->
@@ -97,23 +95,17 @@
                     <i data-lucide="trending-up" class="text-green-600 w-6 h-6"></i> Produk Terlaris
                 </h3>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="bestseller-grid">
-                <!-- Render via JS -->
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="bestseller-grid"></div>
         </div>
     </section>
 
-    <!-- KATALOG UTAMA (Hanya Produk Terbaru) -->
+    <!-- KATALOG UTAMA -->
     <section id="katalog" class="container mx-auto px-4 mb-20">
         <div class="text-center mb-12">
             <h3 class="text-3xl font-extrabold mb-2">Produk Terbaru</h3>
             <p class="text-slate-500">Koleksi teranyar yang baru saja mendarat di toko kami</p>
         </div>
-        
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8" id="latest-product-grid">
-            <!-- Render via JS -->
-        </div>
-
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8" id="latest-product-grid"></div>
         <div id="no-products" class="hidden py-20 text-center space-y-4">
             <i data-lucide="package-search" class="w-16 h-16 mx-auto text-slate-200"></i>
             <p class="text-slate-500 font-medium">Maaf, produk tidak ditemukan.</p>
@@ -140,33 +132,118 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-900 text-white pt-20 pb-10">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            <div class="space-y-6">
-                <h4 class="text-2xl font-bold text-green-500">TokoKu</h4>
-                <p class="text-slate-400 text-sm leading-relaxed">Toko online masa kini yang mengedepankan kemudahan transaksi lewat WhatsApp.</p>
+    <!-- FOOTER LENGKAP -->
+    <footer class="bg-slate-900 text-white pt-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand & Info -->
+                <div class="space-y-6">
+                    <a href="#" class="text-3xl font-extrabold text-green-500 flex items-center gap-2">
+                        <i data-lucide="shopping-bag" class="fill-green-500/20"></i> TokoKu
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        TokoKu adalah destinasi belanja online terpercaya dengan ribuan produk berkualitas. Kami memberikan kemudahan transaksi langsung via WhatsApp dengan respon super cepat.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-green-600 transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-green-600 transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-green-600 transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-green-600 transition-all"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Link Navigasi -->
+                <div>
+                    <h5 class="font-bold mb-8 text-lg flex items-center gap-2">Halaman Penting</h5>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="#" class="hover:text-green-500 flex items-center gap-2 transition-colors"><i data-lucide="chevron-right" class="w-3 h-3"></i> Tentang Kami</a></li>
+                        <li><a href="#" class="hover:text-green-500 flex items-center gap-2 transition-colors"><i data-lucide="chevron-right" class="w-3 h-3"></i> Cara Pemesanan</a></li>
+                        <li><a href="#" class="hover:text-green-500 flex items-center gap-2 transition-colors"><i data-lucide="chevron-right" class="w-3 h-3"></i> Kebijakan Privasi</a></li>
+                        <li><a href="#" class="hover:text-green-500 flex items-center gap-2 transition-colors"><i data-lucide="chevron-right" class="w-3 h-3"></i> Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="hover:text-green-500 flex items-center gap-2 transition-colors"><i data-lucide="chevron-right" class="w-3 h-3"></i> FAQ & Bantuan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kontak -->
+                <div>
+                    <h5 class="font-bold mb-8 text-lg flex items-center gap-2">Hubungi Kami</h5>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li class="flex items-start gap-4">
+                            <div class="bg-green-500/10 p-2 rounded-lg text-green-500"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+                            <span>Jl. Jenderal Sudirman No. 123, Jakarta Pusat, 10210</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="bg-green-500/10 p-2 rounded-lg text-green-500"><i data-lucide="phone" class="w-5 h-5"></i></div>
+                            <span>+62 812 3456 7890</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="bg-green-500/10 p-2 rounded-lg text-green-500"><i data-lucide="mail" class="w-5 h-5"></i></div>
+                            <span>support@tokoku.id</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="bg-green-500/10 p-2 rounded-lg text-green-500"><i data-lucide="clock" class="w-5 h-5"></i></div>
+                            <span>Senin - Minggu: 08.00 - 22.00</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Pembayaran & Ekspedisi -->
+                <div class="space-y-8">
+                    <div>
+                        <h5 class="font-bold mb-4 text-sm text-slate-300 uppercase tracking-widest">Metode Pembayaran</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <!-- Placeholder Logos with Tooltips or Icons -->
+                            <div class="bg-white p-2 rounded-lg w-12 h-8 flex items-center justify-center group relative cursor-help">
+                                <span class="text-[8px] font-bold text-slate-900">BCA</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg w-12 h-8 flex items-center justify-center group relative cursor-help">
+                                <span class="text-[8px] font-bold text-slate-900">MANDIRI</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg w-12 h-8 flex items-center justify-center group relative cursor-help">
+                                <span class="text-[8px] font-bold text-blue-500 font-extrabold">DANA</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg w-12 h-8 flex items-center justify-center group relative cursor-help">
+                                <span class="text-[8px] font-bold text-purple-600 font-extrabold">OVO</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg w-12 h-8 flex items-center justify-center group relative cursor-help">
+                                <span class="text-[8px] font-bold text-orange-500">SHOPEE</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg w-12 h-8 flex items-center justify-center group relative cursor-help">
+                                <span class="text-[8px] font-bold text-slate-900">COD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="font-bold mb-4 text-sm text-slate-300 uppercase tracking-widest">Jasa Pengiriman</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <div class="bg-white p-2 rounded-lg w-12 h-8 flex items-center justify-center">
+                                <span class="text-[8px] font-bold text-red-600">J&T</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg w-12 h-8 flex items-center justify-center">
+                                <span class="text-[8px] font-bold text-blue-900">JNE</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg w-12 h-8 flex items-center justify-center">
+                                <span class="text-[8px] font-bold text-orange-600 italic">SiCepat</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg w-12 h-8 flex items-center justify-center">
+                                <span class="text-[8px] font-bold text-slate-900">Gojek</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-lg w-12 h-8 flex items-center justify-center">
+                                <span class="text-[8px] font-bold text-green-600">Grab</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h5 class="font-bold mb-6 text-lg">Menu Cepat</h5>
-                <ul class="space-y-4 text-slate-400 text-sm">
-                    <li><a href="#katalog" class="hover:text-green-500">Terbaru</a></li>
-                    <li><a href="#pilihan" class="hover:text-green-500">Pilihan Kami</a></li>
-                    <li><a href="#terlaris" class="hover:text-green-500">Terlaris</a></li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="font-bold mb-6 text-lg">Hubungi Kami</h5>
-                <ul class="space-y-4 text-slate-400 text-sm">
-                    <li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-green-500"></i> Jakarta, Indonesia</li>
-                    <li class="flex items-center gap-3"><i data-lucide="phone" class="w-5 h-5 text-green-500"></i> +62 812-3456-7890</li>
-                </ul>
-            </div>
-            <div>
-                <h5 class="font-bold mb-6 text-lg">Ikuti Kami</h5>
-                <div class="flex gap-4">
-                    <div class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-green-600 transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></div>
-                    <div class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-green-600 transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></div>
+
+            <!-- Copyright Area -->
+            <div class="border-t border-white/5 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-xs">
+                    © 2024 <span class="text-white font-bold">TokoKu Indonesia</span>. Seluruh Hak Cipta Dilindungi.
+                </p>
+                <div class="flex items-center gap-6 text-slate-500 text-xs">
+                    <p class="flex items-center gap-1"><i data-lucide="shield-check" class="w-4 h-4 text-green-500"></i> Terverifikasi Keamanan</p>
+                    <p class="flex items-center gap-1"><i data-lucide="lock" class="w-4 h-4 text-green-500"></i> Pembayaran Aman</p>
                 </div>
             </div>
         </div>
@@ -214,14 +291,14 @@
     <!-- SCRIPT UTAMA -->
     <script>
         const products = [
-            { id: 1, name: "Smartwatch GT 4 Pro", price: 1250000, category: "Elektronik", isFeatured: true, isBestseller: true, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80", desc: "Smartwatch AMOLED terbaik untuk gaya hidup modern." },
-            { id: 2, name: "Premium Leather Jacket", price: 850000, category: "Pakaian", isFeatured: false, isBestseller: true, image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80", desc: "Jaket kulit domba asli kualitas ekspor." },
-            { id: 3, name: "Wireless Headphones", price: 2100000, category: "Elektronik", isFeatured: true, isBestseller: true, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80", desc: "Noise cancelling headphone suara studio." },
-            { id: 4, name: "Mechanical Keyboard RGB", price: 450000, category: "Elektronik", isFeatured: false, isBestseller: false, image: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=600&q=80", desc: "Keyboard tactile dengan RGB kustom." },
-            { id: 5, name: "Minimalist Sneakers", price: 599000, category: "Pakaian", isFeatured: true, isBestseller: true, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80", desc: "Sepatu casual putih paling populer." },
-            { id: 6, name: "Backpack Urban 30L", price: 350000, category: "Aksesoris", isFeatured: false, isBestseller: false, image: "https://images.unsplash.com/photo-1553062407-98eeb94c6a62?w=600&q=80", desc: "Tas ransel waterproof multifungsi." },
-            { id: 7, name: "Polaroid Camera Neo", price: 1450000, category: "Elektronik", isFeatured: true, isBestseller: false, image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&q=80", desc: "Abadikan momen instan dengan gaya retro." },
-            { id: 8, name: "Minimalist Coffee Maker", price: 890000, category: "Elektronik", isFeatured: false, isBestseller: true, image: "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=600&q=80", desc: "Mesin kopi otomatis untuk pagi yang lebih baik." }
+            { id: 1, name: "Smartwatch GT 4 Pro", price: 1250000, category: "Elektronik", isFeatured: true, isBestseller: true, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80", desc: "Smartwatch AMOLED terbaik untuk gaya hidup modern dengan sensor kesehatan lengkap." },
+            { id: 2, name: "Premium Leather Jacket", price: 850000, category: "Pakaian", isFeatured: false, isBestseller: true, image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&q=80", desc: "Jaket kulit asli dengan lapisan dalam yang nyaman untuk berkendara." },
+            { id: 3, name: "Wireless Headphones", price: 2100000, category: "Elektronik", isFeatured: true, isBestseller: true, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80", desc: "Headphone nirkabel dengan kualitas suara audiophile dan peredam bising aktif." },
+            { id: 4, name: "Mechanical Keyboard RGB", price: 450000, category: "Elektronik", isFeatured: false, isBestseller: false, image: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=600&q=80", desc: "Keyboard mekanik dengan switch blue yang tactile untuk pengalaman mengetik maksimal." },
+            { id: 5, name: "Minimalist Sneakers", price: 599000, category: "Pakaian", isFeatured: true, isBestseller: true, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80", desc: "Sepatu sneakers putih minimalis yang cocok untuk segala outfit." },
+            { id: 6, name: "Backpack Urban 30L", price: 350000, category: "Aksesoris", isFeatured: false, isBestseller: false, image: "https://images.unsplash.com/photo-1553062407-98eeb94c6a62?w=600&q=80", desc: "Tas ransel kapasitas besar dengan kompartemen laptop 15 inch." },
+            { id: 7, name: "Polaroid Camera Neo", price: 1450000, category: "Elektronik", isFeatured: true, isBestseller: false, image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600&q=80", desc: "Kamera instan polaroid dengan desain retro dan fitur modern." },
+            { id: 8, name: "Minimalist Coffee Maker", price: 890000, category: "Elektronik", isFeatured: false, isBestseller: true, image: "https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=600&q=80", desc: "Mesin pembuat kopi otomatis yang mudah dibersihkan untuk dapur Anda." }
         ];
 
         let cart = [];
@@ -241,7 +318,6 @@
             renderLatest();
         }
 
-        // Render Produk Pilihan (Carousel)
         function renderFeatured() {
             const container = document.getElementById('featured-grid');
             const featured = products.filter(p => p.isFeatured);
@@ -249,7 +325,6 @@
                 <div class="min-w-[280px] md:min-w-[320px] bg-white rounded-3xl border border-gray-100 overflow-hidden group shadow-sm hover:shadow-md transition-all">
                     <div class="relative aspect-video overflow-hidden cursor-pointer" onclick="viewDetail(${p.id})">
                         <img src="${p.image}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
                     <div class="p-5">
                         <h4 class="font-bold text-sm mb-1">${p.name}</h4>
@@ -260,7 +335,6 @@
             `).join('');
         }
 
-        // Render Produk Terlaris (Grid Kecil/List)
         function renderBestsellers() {
             const container = document.getElementById('bestseller-grid');
             const best = products.filter(p => p.isBestseller).slice(0, 6);
@@ -268,10 +342,6 @@
                 <div class="bg-white p-4 rounded-3xl flex gap-4 items-center shadow-sm border border-transparent hover:border-green-300 transition-all cursor-pointer" onclick="viewDetail(${p.id})">
                     <img src="${p.image}" class="w-20 h-20 rounded-2xl object-cover">
                     <div class="flex-1">
-                        <div class="flex items-center gap-1 text-orange-400 mb-1">
-                            <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                            <span class="text-[10px] font-bold text-slate-400">Terlaris #1</span>
-                        </div>
                         <h4 class="font-bold text-sm line-clamp-1">${p.name}</h4>
                         <p class="text-green-600 font-extrabold text-sm">Rp ${p.price.toLocaleString('id-ID')}</p>
                     </div>
@@ -283,19 +353,12 @@
             if (typeof lucide !== 'undefined') lucide.createIcons();
         }
 
-        // Render Produk Terbaru (Main Catalog)
         function renderLatest() {
             const grid = document.getElementById('latest-product-grid');
             const noProducts = document.getElementById('no-products');
-            
             let filtered = [...products].sort((a,b) => b.id - a.id);
-
-            if(currentSearch) {
-                filtered = filtered.filter(p => p.name.toLowerCase().includes(currentSearch.toLowerCase()));
-            }
-
+            if(currentSearch) filtered = filtered.filter(p => p.name.toLowerCase().includes(currentSearch.toLowerCase()));
             grid.innerHTML = '';
-
             if(filtered.length === 0) {
                 grid.classList.add('hidden');
                 noProducts.classList.remove('hidden');
@@ -368,9 +431,7 @@
             const footer = document.getElementById('cart-footer');
             const countLabel = document.getElementById('cart-count');
             const totalEl = document.getElementById('cart-total');
-
             countLabel.innerText = cart.reduce((s, i) => s + i.qty, 0);
-
             if(cart.length === 0) {
                 container.innerHTML = '<p class="text-center text-slate-400 py-10">Keranjang kosong</p>';
                 footer.classList.add('hidden');
