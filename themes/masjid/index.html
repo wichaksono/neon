@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masjid Al-Ikhlas - Pusat Dakwah & Ibadah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Amiri:wght@400;700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; }
+        .arabic { font-family: 'Amiri', serif; }
+        .hero-gradient {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; background-position: center;
+        }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .scroll-mt { scroll-margin-top: 100px; }
+        
+        /* Utility for conditional menu */
+        .hidden-menu { display: none !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Top Info Bar -->
+    <div class="bg-green-800 text-white py-2 text-xs hidden md:block">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex space-x-4">
+                <span><i class="fas fa-phone mr-1"></i> 021-123456</span>
+                <span><i class="fas fa-envelope mr-1"></i> info@masjidalikhlas.id</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" title="Youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <i class="fas fa-mosque text-green-700 text-3xl mr-2"></i>
+                    <span class="text-xl font-black text-slate-900 tracking-tight">AL-IKHLAS</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="#" class="px-3 py-2 text-sm font-medium text-green-700">Beranda</a>
+                    
+                    <!-- Dropdown Profil -->
+                    <div class="relative dropdown">
+                        <button class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-green-700 flex items-center">
+                            Profil <i class="fas fa-chevron-down ml-1 text-[10px]"></i>
+                        </button>
+                        <div class="dropdown-menu hidden absolute left-0 mt-0 w-48 bg-white shadow-xl border-t-2 border-green-600 py-2">
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-green-50">Sejarah</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-green-50">Visi & Misi</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-green-50">Struktur Pengurus</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-green-50">Imam & Khatib</a>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Jadwal -->
+                    <div class="relative dropdown">
+                        <button class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-green-700 flex items-center">
+                            Jadwal <i class="fas fa-chevron-down ml-1 text-[10px]"></i>
+                        </button>
+                        <div class="dropdown-menu hidden absolute left-0 mt-0 w-48 bg-white shadow-xl border-t-2 border-green-600 py-2">
+                            <a href="#jadwal" class="block px-4 py-2 text-sm text-slate-700 hover:bg-green-50">Jadwal Sholat</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-green-50">Jadwal Imam</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-green-50">Khatib Jumat</a>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Kegiatan -->
+                    <div class="relative dropdown">
+                        <button class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-green-700 flex items-center">
+                            Kegiatan <i class="fas fa-chevron-down ml-1 text-[10px]"></i>
+                        </button>
+                        <div class="dropdown-menu hidden absolute left-0 mt-0 w-56 bg-white shadow-xl border-t-2 border-green-600 py-2">
+                            <a href="#kegiatan" class="block px-4 py-2 text-sm text-slate-700 hover:bg-green-50">Agenda Terdekat</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-green-50">Kalender Event</a>
+                            <div class="border-t border-slate-100 my-1"></div>
+                            <a href="#arsip-ramadhan" class="block px-4 py-2 text-sm text-orange-600 hover:bg-orange-50 font-bold">
+                                <i class="fas fa-moon mr-2"></i>Arsip Ramadhan
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Dropdown Media -->
+                    <div class="relative dropdown">
+                        <button class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-green-700 flex items-center">
+                            Media <i class="fas fa-chevron-down ml-1 text-[10px]"></i>
+                        </button>
+                        <div class="dropdown-menu hidden absolute left-0 mt-0 w-48 bg-white shadow-xl border-t-2 border-green-600 py-2">
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-green-50">Video Kajian</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-green-50">Artikel Dakwah</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-slate-700 hover:bg-green-50">Galeri Foto</a>
+                        </div>
+                    </div>
+
+                    <!-- Menu Ramadhan Aktif (Hanya muncul saat bulan Ramadhan) -->
+                    <a href="#ramadhan-aktif" id="nav-ramadhan-aktif" class="hidden-menu px-3 py-2 text-sm font-bold text-orange-600 animate-pulse flex items-center">
+                        <i class="fas fa-star-and-crescent mr-1"></i> Ramadhan 1445H
+                    </a>
+                    
+                    <a href="#kontak" class="ml-4 bg-green-700 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-green-800 transition shadow-md">Kontak</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero-gradient h-[55vh] flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-4xl">
+            <h2 class="arabic text-3xl md:text-4xl mb-6">مَنْ جَاءَ بِالْحَسَنَةِ فَلَهُ عَشْرُ أَمْثَالِهَا</h2>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight">Masjid Al-Ikhlas</h1>
+            <p class="text-lg text-slate-200 mb-8 max-w-2xl mx-auto italic border-l-4 border-green-500 pl-4">"Mewujudkan masyarakat Islami yang berlandaskan Al-Qur'an dan Sunnah."</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#kegiatan" class="bg-green-600 px-8 py-3 rounded-md font-bold hover:bg-green-700 transition">Agenda Kegiatan</a>
+                <a href="#jadwal" class="bg-white/10 backdrop-blur-md px-8 py-3 rounded-md font-bold border border-white/20 hover:bg-white/20 transition">Waktu Sholat</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Jadwal Sholat Bar -->
+    <section id="jadwal" class="max-w-7xl mx-auto px-4 -mt-12 relative z-10 scroll-mt">
+        <div class="bg-white rounded-2xl shadow-2xl p-2 grid grid-cols-3 md:grid-cols-6 gap-2">
+            <div class="p-4 text-center border-r border-slate-50">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Subuh</p>
+                <p class="text-xl font-black text-slate-800">04:32</p>
+            </div>
+            <div class="p-4 text-center border-r border-slate-50 bg-slate-50 rounded-lg">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Syuruq</p>
+                <p class="text-xl font-black text-slate-400">05:48</p>
+            </div>
+            <div class="p-4 text-center border-r border-slate-50 bg-green-50 rounded-lg ring-2 ring-green-500 ring-inset">
+                <p class="text-[10px] font-bold text-green-600 uppercase tracking-widest">Dzuhur</p>
+                <p class="text-xl font-black text-green-700">11:58</p>
+            </div>
+            <div class="p-4 text-center border-r border-slate-50">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Ashar</p>
+                <p class="text-xl font-black text-slate-800">15:10</p>
+            </div>
+            <div class="p-4 text-center border-r border-slate-50">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Maghrib</p>
+                <p class="text-xl font-black text-slate-800">18:02</p>
+            </div>
+            <div class="p-4 text-center">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Isya</p>
+                <p class="text-xl font-black text-slate-800">19:12</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-4 py-16 grid lg:grid-cols-3 gap-12">
+        
+        <!-- Left & Center: Berita & Artikel (2 Kolom) -->
+        <div class="lg:col-span-2 space-y-12">
+            <section>
+                <div class="flex justify-between items-center mb-6 border-b pb-4">
+                    <h2 class="text-2xl font-bold flex items-center"><i class="far fa-newspaper mr-2 text-green-600"></i> Warta Masjid</h2>
+                    <a href="#" class="text-sm font-bold text-green-700 hover:underline">Semua Berita &rarr;</a>
+                </div>
+                <div class="grid gap-6">
+                    <article class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 hover:shadow-md transition">
+                        <img src="https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&w=400&q=80" alt="Kajian Rutin" class="w-full md:w-48 h-32 object-cover rounded-xl">
+                        <div>
+                            <span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-1 rounded uppercase">Artikel Dakwah</span>
+                            <h3 class="text-lg font-bold mt-2 leading-snug hover:text-green-700 cursor-pointer transition">Keutamaan Istiqomah di Bulan Syawal</h3>
+                            <p class="text-slate-500 text-sm mt-2 line-clamp-2">Bagaimana cara menjaga ritme ibadah yang sudah kita bangun selama bulan Ramadhan agar tetap konsisten...</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Arsip Ramadhan Section (Permanen) -->
+            <section id="arsip-ramadhan" class="scroll-mt">
+                <div class="bg-orange-50 border border-orange-100 rounded-3xl p-8 relative overflow-hidden">
+                    <i class="fas fa-moon absolute -top-10 -right-10 text-orange-100 text-[180px] rotate-12"></i>
+                    <div class="relative z-10">
+                        <h2 class="text-2xl font-black text-orange-800 mb-2">Arsip Ramadhan 1445 H</h2>
+                        <p class="text-orange-700/70 text-sm mb-8">Dokumentasi dan ringkasan program Ramadhan tahun lalu.</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <a href="#" class="bg-white p-4 rounded-xl flex items-center space-x-4 hover:shadow-md transition group">
+                                <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center group-hover:bg-orange-600 group-hover:text-white transition">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">Rekaman Tarawih</h4>
+                                    <p class="text-[10px] text-slate-400">Kumpulan ceramah & imam</p>
+                                </div>
+                            </a>
+                            <a href="#" class="bg-white p-4 rounded-xl flex items-center space-x-4 hover:shadow-md transition group">
+                                <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center group-hover:bg-orange-600 group-hover:text-white transition">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">Laporan Kegiatan</h4>
+                                    <p class="text-[10px] text-slate-400">Transparansi dana & program</p>
+                                </div>
+                            </a>
+                            <a href="#" class="bg-white p-4 rounded-xl flex items-center space-x-4 hover:shadow-md transition group">
+                                <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center group-hover:bg-orange-600 group-hover:text-white transition">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">Foto Dokumentasi</h4>
+                                    <p class="text-[10px] text-slate-400">Buka puasa & I'tikaf</p>
+                                </div>
+                            </a>
+                            <a href="#" class="bg-white p-4 rounded-xl flex items-center space-x-4 hover:shadow-md transition group">
+                                <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center group-hover:bg-orange-600 group-hover:text-white transition">
+                                    <i class="fas fa-microphone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm">Podcast Ramadhan</h4>
+                                    <p class="text-[10px] text-slate-400">Kumpulan kultum pilihan</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right: Sidebar (Agenda & Info) -->
+        <aside class="space-y-10">
+            <!-- Agenda Widget -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                <h3 class="text-lg font-bold mb-6 flex items-center border-l-4 border-green-600 pl-3">Agenda Terdekat</h3>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-slate-100 rounded-lg flex flex-col items-center justify-center">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase">Mei</span>
+                            <span class="text-lg font-black text-slate-800">12</span>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold leading-tight">Pelatihan Tajwid Dewasa</h4>
+                            <p class="text-[11px] text-slate-400 mt-1"><i class="far fa-clock mr-1"></i> Ba'da Maghrib</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-slate-100 rounded-lg flex flex-col items-center justify-center">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase">Mei</span>
+                            <span class="text-lg font-black text-slate-800">15</span>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold leading-tight">Santunan Anak Yatim</h4>
+                            <p class="text-[11px] text-slate-400 mt-1"><i class="far fa-clock mr-1"></i> 09:00 - Selesai</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="w-full mt-8 py-3 text-xs font-bold text-green-700 bg-green-50 rounded-xl hover:bg-green-100 transition tracking-widest uppercase">Lihat Kalender Lengkap</button>
+            </div>
+
+            <!-- YouTube / Video Widget -->
+            <div class="rounded-2xl overflow-hidden shadow-lg group relative cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1574246604907-db69e30ddb97?auto=format&fit=crop&w=600&q=80" alt="Video Kajian" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 group-hover:bg-red-600 group-hover:border-red-600 transition">
+                        <i class="fas fa-play text-white text-sm"></i>
+                    </div>
+                </div>
+                <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <p class="text-[10px] text-red-400 font-bold uppercase tracking-widest">Kajian Terbaru</p>
+                    <h4 class="text-white text-sm font-bold">Fiqih Muamalah - Eps 24</h4>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center text-white mb-6">
+                    <i class="fas fa-mosque text-green-500 text-3xl mr-3"></i>
+                    <span class="text-2xl font-black tracking-tighter">AL-IKHLAS</span>
+                </div>
+                <p class="max-w-sm text-sm leading-relaxed">Jl. Raya Ibadah No. 123, Kota Muslim, Indonesia. Masjid Al-Ikhlas berkomitmen menjadi pusat pemberdayaan umat melalui dakwah dan pendidikan.</p>
+                <div class="mt-8 flex space-x-4">
+                    <a href="#" class="w-10 h-10 border border-slate-700 rounded-full flex items-center justify-center hover:bg-green-600 hover:border-green-600 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 border border-slate-700 rounded-full flex items-center justify-center hover:bg-green-600 hover:border-green-600 hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h5 class="text-white font-bold text-xs uppercase tracking-widest mb-6">Navigasi</h5>
+                <ul class="text-sm space-y-4">
+                    <li><a href="#" class="hover:text-white transition">Visi & Misi</a></li>
+                    <li><a href="#" class="hover:text-white transition">Struktur Pengurus</a></li>
+                    <li><a href="#arsip-ramadhan" class="hover:text-white transition">Arsip Ramadhan</a></li>
+                    <li><a href="#" class="hover:text-white transition">Kontak & Lokasi</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold text-xs uppercase tracking-widest mb-6">Program</h5>
+                <ul class="text-sm space-y-4">
+                    <li><a href="#" class="hover:text-white transition">TPA & Tahfidz</a></li>
+                    <li><a href="#" class="hover:text-white transition">Layanan Jenazah</a></li>
+                    <li><a href="#" class="hover:text-white transition">Muallaf Center</a></li>
+                    <li><a href="#" class="hover:text-white transition">Ambulans Umat</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-20 pt-8 border-t border-slate-800 text-center">
+            <p class="text-[10px] font-bold uppercase tracking-[0.2em]">&copy; 2024 DKM Masjid Al-Ikhlas | Syiar Digital Masjid</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simulasi Logika Aktifasi Menu Ramadhan (Misal: 1 Bulan Sebelum Ramadhan)
+        // Jika isRamadan = true, menu khusus akan muncul di navbar utama
+        const isRamadan = false; 
+        
+        if (isRamadan) {
+            document.getElementById('nav-ramadhan-aktif').classList.remove('hidden-menu');
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
