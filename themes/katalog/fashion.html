@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeonCatalog | Premium Fashion Lookbook 2026</title>
+    <meta name="description" content="Katalog fashion digital elegan dengan desain modern, cepat, dan responsif.">
+    
+    <!-- Preconnect untuk Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- ==========================================
+         CRITICAL CSS (FCP & LCP Optimization)
+         ========================================== -->
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #111111;
+            --text-light: #6b7280;
+            --accent: #8F6A44; /* Warna brand dari logo (Bronze/Gold) */
+            --border-color: #e5e7eb;
+            --gray-bg: #faf9f7; /* Background disesuaikan agar lebih hangat */
+            --placeholder: #f4f3f1; /* Placeholder disesuaikan agar lebih hangat */
+            
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) { .container { max-width: 768px; } }
+        @media (min-width: 1024px) { .container { max-width: 1200px; padding-left: 2rem; padding-right: 2rem; } }
+
+        /* Typography */
+        h1, h2, h3, h4, .logo-text {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+        }
+
+        /* Desktop Menu Baru */
+        .desktop-menu {
+            display: none;
+            gap: 2rem;
+        }
+        
+        .desktop-menu a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.3s;
+        }
+        .desktop-menu a:hover { color: var(--text-light); }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+        }
+
+        @media (min-width: 768px) {
+            .desktop-menu { display: flex; }
+            .menu-btn { display: none; }
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg-color);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu-overlay.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+            height: 70px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .close-menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1.5rem;
+            gap: 1.5rem;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 100px;
+            padding-bottom: var(--space-md);
+        }
+
+        .hero-layout {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        @media (min-width: 1024px) {
+            .hero { padding-top: 140px; padding-bottom: var(--space-lg); }
+            .hero-layout { flex-direction: row; align-items: center; gap: 4rem; }
+            .hero-text, .hero-image-wrapper { flex: 1; }
+        }
+
+        .hero-text h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+        @media (min-width: 768px) { .hero-text h1 { font-size: 4rem; } }
+
+        .hero-text p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+        }
+
+        /* Styling Tombol Utama Dipertegas */
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 1px solid var(--accent);
+        }
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+
+        .hero-image-wrapper {
+            width: 100%;
+            background-color: var(--placeholder);
+            aspect-ratio: 4 / 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        @media (min-width: 1024px) { .hero-image-wrapper { aspect-ratio: 3 / 4; } }
+
+        .placeholder-text {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            font-family: var(--font-body);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Lengkap -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="#" class="logo-text">NeonCatalog<span style="color: var(--accent);">.</span></a>
+            
+            <nav class="desktop-menu">
+                <a href="#katalog">Koleksi Baru</a>
+                <a href="#katalog">Pria</a>
+                <a href="#katalog">Wanita</a>
+                <a href="#footer">Tentang Kami</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#katalog" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem; border-radius: 4px;">Beli Sekarang</a>
+                <button class="menu-btn" id="openMenuBtn" aria-label="Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="#" class="logo-text">NeonCatalog<span style="color: var(--accent);">.</span></a>
+            <button class="close-menu-btn" id="closeMenuBtn" aria-label="Close Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <nav class="mobile-nav">
+            <a href="#katalog">Koleksi Baru</a>
+            <a href="#katalog">Pria</a>
+            <a href="#katalog">Wanita</a>
+            <a href="#footer">Tentang Kami</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-layout">
+                <div class="hero-text">
+                    <h1>Elegansi.<br>Masa Depan.</h1>
+                    <p>Temukan koleksi eksklusif Spring/Summer 2026. Perpaduan sempurna antara material organik premium dan potongan minimalis urban modern.</p>
+                    <a href="#katalog" class="btn-primary">Eksplorasi Katalog</a>
+                </div>
+                <div class="hero-image-wrapper">
+                    <span class="placeholder-text">[Gambar Model Resolusi Tinggi]</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats border-y">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <span class="stat-num">100%</span>
+                    <span class="stat-desc">Katun Organik Premium</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">24/7</span>
+                    <span class="stat-desc">Layanan Klien VIP</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">30 Hari</span>
+                    <span class="stat-desc">Pengembalian Global</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog Section -->
+        <section class="catalog" id="katalog">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Koleksi Musim Ini 2026</h2>
+                </div>
+
+                <div class="catalog-filters">
+                    <button class="filter-btn active">Semua Produk</button>
+                    <button class="filter-btn">Pakaian Pria</button>
+                    <button class="filter-btn">Pakaian Wanita</button>
+                    <button class="filter-btn">Aksesoris Kulit</button>
+                </div>
+                
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <article class="product-card">
+                        <div class="product-img">
+                            <span class="placeholder-text"></span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Minimalist Trench Coat</h3>
+                            <p class="product-price">Rp 1.499.000</p>
+                            <!-- Tombol Solid -->
+                            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20Minimalist%20Trench%20Coat" class="btn-buy" target="_blank">Pesan via WhatsApp</a>
+                        </div>
+                    </article>
+
+                    <!-- Product 2 -->
+                    <article class="product-card">
+                        <div class="product-img">
+                             <span class="placeholder-text"></span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Ivory Silk Blouse</h3>
+                            <p class="product-price">Rp 850.000</p>
+                            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20Ivory%20Silk%20Blouse" class="btn-buy" target="_blank">Pesan via WhatsApp</a>
+                        </div>
+                    </article>
+
+                    <!-- Product 3 -->
+                    <article class="product-card">
+                        <div class="product-img">
+                             <span class="placeholder-text"></span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Pleated High-Waist Trousers</h3>
+                            <p class="product-price">Rp 699.000</p>
+                            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20Pleated%20Trousers" class="btn-buy" target="_blank">Pesan via WhatsApp</a>
+                        </div>
+                    </article>
+
+                    <!-- Product 4 -->
+                    <article class="product-card">
+                        <div class="product-img">
+                             <span class="placeholder-text"></span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Breathable Linen Shirt</h3>
+                            <p class="product-price">Rp 550.000</p>
+                            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20Linen%20Shirt" class="btn-buy" target="_blank">Pesan via WhatsApp</a>
+                        </div>
+                    </article>
+
+                    <!-- Product 5 -->
+                    <article class="product-card">
+                        <div class="product-img">
+                             <span class="placeholder-text"></span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Noir Leather Tote</h3>
+                            <p class="product-price">Rp 1.250.000</p>
+                            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20Noir%20Leather%20Tote" class="btn-buy" target="_blank">Pesan via WhatsApp</a>
+                        </div>
+                    </article>
+
+                    <!-- Product 6 -->
+                    <article class="product-card">
+                        <div class="product-img">
+                             <span class="placeholder-text"></span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Classic Penny Loafers</h3>
+                            <p class="product-price">Rp 980.000</p>
+                            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20Penny%20Loafers" class="btn-buy" target="_blank">Pesan via WhatsApp</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Lengkap dan Padat -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Kolom 1: Newsletter & Brand -->
+                <div class="footer-brand">
+                    <h2 class="logo-text" style="font-size: 1.5rem; margin-bottom: 1rem;">NeonCatalog<span style="color: var(--accent);">.</span></h2>
+                    <p class="footer-desc">Bergabunglah dengan newsletter kami untuk mendapatkan pembaruan eksklusif tentang koleksi 2026, panduan gaya, dan penawaran khusus.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Alamat Email Anda" required>
+                        <button type="submit">Daftar</button>
+                    </form>
+                </div>
+                
+                <!-- Kolom 2: Shop -->
+                <div class="footer-links">
+                    <h4>Belanja</h4>
+                    <ul>
+                        <li><a href="#">Koleksi Pria 2026</a></li>
+                        <li><a href="#">Koleksi Wanita 2026</a></li>
+                        <li><a href="#">Aksesoris Premium</a></li>
+                        <li><a href="#">Edisi Terbatas</a></li>
+                        <li><a href="#">Panduan Ukuran</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 3: Layanan Pelanggan -->
+                <div class="footer-links">
+                    <h4>Layanan Klien</h4>
+                    <ul>
+                        <li><a href="#">Hubungi Kami</a></li>
+                        <li><a href="#">FAQ Pemesanan</a></li>
+                        <li><a href="#">Lacak Pesanan</a></li>
+                        <li><a href="#">Kebijakan Pengembalian</a></li>
+                        <li><a href="#">Metode Pembayaran</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 4: Perusahaan & Sosial -->
+                <div class="footer-links">
+                    <h4>Perusahaan</h4>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Karir & Budaya</a></li>
+                        <li><a href="#">Tanggung Jawab Ekologi</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="Twitter">X</a>
+                        <a href="#" aria-label="TikTok">TT</a>
+                        <a href="#" aria-label="Pinterest">PT</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright border-y" style="background: transparent; border-bottom: none; margin-top: 3rem; padding-top: 2rem;">
+                &copy; 2026 NeonCatalog Fashion Studio. Hak Cipta Dilindungi Undang-Undang.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp CTA -->
+    <a href="https://wa.me/6281234567890" class="wa-float" target="_blank" aria-label="Hubungi kami via WhatsApp">
+        <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <!-- ==========================================
+         NON-CRITICAL CSS
+         ========================================== -->
+    <style>
+        .border-y {
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--gray-bg);
+        }
+
+        .stats { padding: 3rem 0; }
+        .stats-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .stats-grid { flex-direction: row; justify-content: space-around; }
+        }
+        .stat-num {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+        .stat-desc {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .catalog { padding: var(--space-lg) 0; }
+        .section-header { text-align: center; margin-bottom: 2.5rem; }
+        .section-header h2 { font-size: 2.25rem; font-weight: 800; }
+
+        .catalog-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: none;
+            border: none;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-light);
+            cursor: pointer;
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            color: var(--text-main);
+            border-bottom-color: var(--text-main);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) { .product-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
+        @media (min-width: 1024px) { .product-grid { gap: 3rem; } }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-img {
+            background-color: var(--placeholder);
+            aspect-ratio: 3 / 4;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: opacity 0.3s;
+        }
+
+        .product-img::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer { 100% { transform: translateX(100%); } }
+
+        .product-info {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .product-title {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .product-price {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-bottom: 1.25rem;
+        }
+
+        /* Tombol Produk Diperjelas (Bukan Link Teks Lagi) */
+        .btn-buy {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #ffffff;
+            background-color: var(--accent);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 200px;
+            transition: all 0.3s;
+            border: 1px solid var(--accent);
+        }
+        .btn-buy:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+
+        /* Desain Footer Super Lengkap Baru */
+        .footer {
+            background-color: var(--gray-bg);
+            padding: 5rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-grid { grid-template-columns: 1.5fr 1fr 1fr; }
+        }
+        @media (min-width: 1024px) {
+            .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; }
+        }
+
+        .footer-desc {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            max-width: 320px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 350px;
+        }
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            outline: none;
+        }
+        .newsletter-form input:focus { border-color: var(--accent); }
+        .newsletter-form button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .newsletter-form button:hover { opacity: 0.8; }
+
+        .footer-links h4 { 
+            font-family: var(--font-body); 
+            font-size: 0.875rem; 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em; 
+            margin-bottom: 1.5rem; 
+            font-weight: 600;
+        }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 0.75rem; }
+        .footer-links ul li a { 
+            color: var(--text-light); 
+            text-decoration: none; 
+            font-size: 0.875rem; 
+            transition: color 0.3s; 
+        }
+        .footer-links ul li a:hover { color: var(--accent); }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .copyright { text-align: center; font-size: 0.875rem; color: #9ca3af; }
+
+        /* Floating WA */
+        .wa-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: #25D366;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 999;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .wa-float:hover { transform: scale(1.1) translateY(-5px); }
+    </style>
+
+    <!-- Script Fungsionalitas -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const openMenuBtn = document.getElementById('openMenuBtn');
+            const closeMenuBtn = document.getElementById('closeMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileLinks = mobileMenu.querySelectorAll('.mobile-nav a');
+
+            function toggleMenu() {
+                mobileMenu.classList.toggle('active');
+                // Menghentikan scroll pada background ketika menu terbuka
+                if (mobileMenu.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            }
+
+            openMenuBtn.addEventListener('click', toggleMenu);
+            closeMenuBtn.addEventListener('click', toggleMenu);
+
+            // Menutup menu otomatis jika salah satu link ditekan
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+    </script>
+</body>
+</html>
